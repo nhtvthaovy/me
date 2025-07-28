@@ -1,0 +1,16 @@
+@import url("https://db.onlinewebfonts.com/c/926fcaaa8b66e0df67e176f329259711?family=PP+Editorial+New");
+@import "tailwindcss";
+
+body {
+  font-family: Ovo;
+}
+
+.font-ppen {
+  font-family: "PP Editorial New", serif;
+}
+
+.font-ppe {
+  font-family: "PP Editorial", serif;
+}
+
+
