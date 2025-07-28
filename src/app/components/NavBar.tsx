@@ -35,7 +35,7 @@ const NavBar = () => {
           {navItems.map((item) => (
             <li key={item.id}>
               <a
-                href={`/${item.id === "home" ? "" : item.id}`}
+                href={`/${item.id}`}
                 className={`transition-colors px-2 py-1 cursor-pointer ${
                   current === item.id
                     ? "text-[#377C74]"
