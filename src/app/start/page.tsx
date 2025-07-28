@@ -1,8 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Orbitron } from "next/font/google";
 
 const orbitron = Orbitron({
@@ -40,11 +40,11 @@ export default function Start() {
           transition={{ type: "spring", stiffness: 300 }}
           className="relative z-10 w-[160px] h-[160px] rounded-full overflow-hidden cursor-pointer"
         >
-          <Image
+          <img
             src="/start.gif"
             alt="Start Button"
-            fill
-            className="object-cover"
+            loading="eager"
+            className="w-full h-full object-cover absolute"
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <span
