@@ -2,11 +2,18 @@
 
 import { useState } from "react";
 import { Moon, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
-  const [active, setActive] = useState("home");
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
+
+  // Ẩn ở "/" và "/start"
+  if (pathname === "/" || pathname === "/start") return null;
+
+  // Lấy phần sau "/" làm current (vd: "/home" => "home")
+  const current = pathname.startsWith("/") ? pathname.slice(1) : pathname;
   const navItems = [
     { id: "home", label: "Home" },
     { id: "blog", label: "Blog" },
@@ -17,38 +24,36 @@ const NavBar = () => {
   return (
     <nav className="w-full py-6 bg-[#FEFFF0] relative z-50">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-        {/* Logo trái */}
+        {/* Logo */}
         <div className="text-2xl font-semibold text-[#1B4D4A]">
           <span className="font-bold text-[#377C74]">T</span>
           Vy.
         </div>
 
-        {/* Menu giữa - Desktop only */}
+        {/* Desktop menu */}
         <ul className="hidden md:flex justify-center items-center space-x-8 text-[17px] font-semibold text-[#1B1B1B]">
           {navItems.map((item) => (
             <li key={item.id}>
               <a
-                href={`/${item.id}`}
-                onClick={() => setActive(item.id)}
+                href={`/${item.id === "home" ? "" : item.id}`}
                 className={`transition-colors px-2 py-1 cursor-pointer ${
-                  active === item.id
+                  current === item.id
                     ? "text-[#377C74]"
                     : "text-[#1B1B1B] hover:text-[#377C74]"
                 }`}
               >
-                {active === item.id ? `( ${item.label} )` : item.label}
+                {current === item.id ? `( ${item.label} )` : item.label}
               </a>
             </li>
           ))}
         </ul>
 
-        {/* Phải: Icon + Menu mobile */}
+        {/* Mobile right */}
         <div className="flex items-center gap-4 text-[#1B1B1B]">
           <button className="hover:text-[#377C74] transition-colors">
             <Moon size={20} />
           </button>
 
-          {/* Hamburger Icon Mobile */}
           <button
             className="md:hidden hover:text-[#377C74]"
             onClick={() => setIsOpen(true)}
@@ -58,7 +63,7 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Full-screen overlay menu */}
+      {/* Mobile overlay */}
       {isOpen && (
         <div className="fixed inset-0 bg-[#FEFFF0] flex flex-col items-center justify-center text-xl font-semibold text-[#1B1B1B] space-y-8 z-50 transition-all">
           <button
@@ -70,18 +75,15 @@ const NavBar = () => {
           {navItems.map((item) => (
             <a
               key={item.id}
-              href={`/${item.id}`}
-              onClick={() => {
-                setActive(item.id);
-                setIsOpen(false);
-              }}
+              href={`/${item.id === "home" ? "" : item.id}`}
+              onClick={() => setIsOpen(false)}
               className={`text-2xl ${
-                active === item.id
+                current === item.id
                   ? "text-[#377C74]"
                   : "text-[#1B1B1B] hover:text-[#377C74]"
               }`}
             >
-              {active === item.id ? `( ${item.label} )` : item.label}
+              {current === item.id ? `( ${item.label} )` : item.label}
             </a>
           ))}
         </div>
