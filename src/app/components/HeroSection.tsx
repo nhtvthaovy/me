@@ -58,7 +58,7 @@ export default function HeroSection() {
         >
           <p className="text-base text-[#1E1E1E]">Welcome to creative lab,</p>
           <h1 className="text-2xl md:text-3xl font-bold text-[#1E1E1E] leading-snug">Hy! I Am</h1>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#E3A500] leading-snug">Vy.</h2>
+<h2 className="text-3xl md:text-4xl font-extrabold text-[#F4A7B9] leading-snug">Vy.</h2>
         </motion.div>
 
         {/* RIGHT TEXT - rotateScale */}
@@ -83,7 +83,7 @@ export default function HeroSection() {
           animate="visible"
         >
           <div className="relative">
-            <div className="bg-gradient-to-t from-[#EDB33C] via-[#37806B]/30 to-transparent p-[5px] rounded-full">
+<div className="bg-gradient-to-t from-[#A5D8FF] via-[#4098D7]/30 to-transparent p-[5px] rounded-full">
               <div
                 className="w-[250px] h-[250px] sm:w-[320px] sm:h-[320px] md:w-[360px] md:h-[360px] lg:w-[400px] lg:h-[400px]
                 rounded-full overflow-hidden shadow-md relative transition-all duration-300"
@@ -125,8 +125,12 @@ export default function HeroSection() {
           animate="visible"
           custom={3}
         >
-          <p className="text-2xl font-bold italic text-[#1E1E1E] font-[cursive]">After all, it’s truly just me</p>
-          <p className="text-2xl font-semibold text-[#37806B]">and only me.</p>
+<p className="text-2xl font-bold italic text-[#D8BFD8] font-[cursive]">
+  After all, it’s truly just me
+</p>
+<p className="text-2xl font-semibold text-[#F3C6D3]">
+  and only me.
+</p>
         </motion.div>
       </div>
     </div>

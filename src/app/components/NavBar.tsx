@@ -26,10 +26,11 @@ const NavBar = () => {
   return (
     <nav className="w-full py-6 bg-[#FEFFF0] relative z-50">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-<Link href="/" className="text-2xl font-semibold text-[#1B4D4A]">
-  <span className="font-bold text-[#377C74]">T</span>
+<Link href="/" className="text-2xl font-semibold text-[#D67BA8]">
+  <span className="font-bold text-[#F3C6D3]">T</span>
   Vy.
 </Link>
+
 
         {/* Desktop menu */}
         <ul className="hidden md:flex justify-center items-center space-x-8 text-[17px] font-semibold text-[#1B1B1B]">
