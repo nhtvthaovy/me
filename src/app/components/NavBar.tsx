@@ -75,7 +75,7 @@ const NavBar = () => {
           {navItems.map((item) => (
             <a
               key={item.id}
-              href={`/${item.id === "home" ? "" : item.id}`}
+              href={`/${item.id}`}
               onClick={() => setIsOpen(false)}
               className={`text-2xl ${
                 current === item.id
