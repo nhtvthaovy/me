@@ -32,7 +32,7 @@ export default function Start() {
   }, [count1, count2, router]);
 
   return (
-    <main className="font-ppen w-screen h-screen relative flex flex-col items-center justify-center overflow-hidden bg-[#FEFFF0] ">
+    <main className="w-screen h-screen relative flex flex-col items-center justify-center overflow-hidden bg-[#FEFFF0] ">
 
       <div className="text-black leading-[1.1] text-[0.5rem] sm:text-[1rem] font-semibold text-right">
         <p className="mb-2">nguyenhuynh</p>
