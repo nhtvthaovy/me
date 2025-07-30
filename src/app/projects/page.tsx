@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Variants, motion } from "framer-motion";
 import Card from "../components/ui/Card";
 import Loading from "../components/ui/Loading";
@@ -20,7 +20,7 @@ interface ProjectItem {
 }
 
 interface Block {
-  imageUrl: any;
+  imageUrl?: any;
   checked?: boolean;
   type: string;
   text?: string;
@@ -36,6 +36,14 @@ const fadeIn: Variants = {
 };
 
 export default function ProjectsPage() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <ProjectsContent />
+    </Suspense>
+  );
+}
+
+function ProjectsContent() {
   const [projects, setProjects] = useState<ProjectItem[]>([]);
   const [blocks, setBlocks] = useState<Block[]>([]);
   const [selectedPageId, setSelectedPageId] = useState<string | null>(null);
@@ -121,22 +129,18 @@ export default function ProjectsPage() {
           </motion.div>
 
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl">
-            {paginatedProjects.map((project, index) => {
-              // console.log(project.title, project.pageId);
-
-              return (
-                <Card
-                  key={project.id}
-                  image={project.img}
-                  title={project.title}
-                  description={project.des}
-                  index={index}
-                  as="li"
-                  fallbackText="No image"
-                  onClick={() => setSelectedPageId(project.pageId)}
-                />
-              );
-            })}
+            {paginatedProjects.map((project, index) => (
+              <Card
+                key={project.id}
+                image={project.img}
+                title={project.title}
+                description={project.des}
+                index={index}
+                as="li"
+                fallbackText="No image"
+                onClick={() => setSelectedPageId(project.pageId)}
+              />
+            ))}
           </ul>
 
           {totalPages > 1 && (
@@ -165,6 +169,7 @@ export default function ProjectsPage() {
               href="https://github.com/nhtvthaovy"
               target="_blank"
               rel="noopener noreferrer"
+              className="flex items-center gap-2 mb-4"
             >
               <Github className="w-8 h-8 md:w-12 md:h-12 text-black" />
               <span className="text-[10px] md:text-sm font-medium text-black mt-1">
@@ -198,11 +203,6 @@ export default function ProjectsPage() {
                     </h2>
                   );
                 case "bulleted_list_item":
-                  return (
-                    <li key={index} className="list-inside">
-                      {block.text}
-                    </li>
-                  );
                 case "numbered_list_item":
                   return (
                     <li key={index} className="list-inside">
@@ -243,23 +243,25 @@ export default function ProjectsPage() {
                       className="my-4 max-w-full rounded shadow"
                     />
                   ) : null;
+                case "divider":
+                  return (
+                    <hr key={index} className="my-6 border-t border-gray-300" />
+                  );
                 default:
                   return (
                     <p key={index} className="text-gray-400 italic">
                       [Không hỗ trợ: {block.type}]
                     </p>
                   );
-                case "divider":
-                  return (
-                    <hr key={index} className="my-6 border-t border-gray-300" />
-                  );
               }
             })}
           </div>
+
           <a
             href="https://github.com/nhtvthaovy"
             target="_blank"
             rel="noopener noreferrer"
+            className="flex items-center gap-2 mt-6"
           >
             <Github className="w-8 h-8 md:w-12 md:h-12 text-black" />
             <span className="text-[10px] md:text-sm font-medium text-black mt-1">
