@@ -136,7 +136,7 @@ export default function HeroSection() {
           custom={3}
         >
           <p className="text-2xl font-bold italic text-[#D8BFD8] font-[cursive]">
-            After all, it’s truly just me
+            After all, it’s me
           </p>
           <p className="text-2xl font-semibold text-[#F3C6D3]">and only me.</p>
         </motion.div>

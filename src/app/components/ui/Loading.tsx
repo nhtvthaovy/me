@@ -1,14 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-
-export default function Loading() {
+export default function LoadingGarden() {
   return (
-    <div className="fixed inset-0 z-[9999] bg-white/70 backdrop-blur-sm flex items-center justify-center">
-      <motion.div
-        className="w-12 h-12 border-4 border-[#A57AC4] border-t-transparent rounded-full animate-spin"
-        aria-label="Loading..."
+    <div className="fixed inset-0 z-[9999] bg-white/70 backdrop-blur-md flex items-center justify-center">
+      <img
+        src="https://media.giphy.com/media/l4FGv5Ci0WIp8kYhO/giphy.gif"
+        alt="Loading Flower"
+        className="w-92 h-92 object-contain"
       />
     </div>
   );

@@ -5,11 +5,9 @@ import { Moon, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-
 const NavBar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-
 
   // Ẩn ở "/" và "/start"
   if (pathname === "/" || pathname === "/start") return null;
@@ -18,19 +16,18 @@ const NavBar = () => {
   const current = pathname.startsWith("/") ? pathname.slice(1) : pathname;
   const navItems = [
     { id: "home", label: "Home" },
-    { id: "blog", label: "Blog" },
     { id: "projects", label: "Projects" },
+    { id: "blog", label: "Blog" },
     { id: "contact", label: "Contact" },
   ];
 
   return (
     <nav className="w-full py-6 bg-[#FEFFF0] relative z-50">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-<Link href="/" className="text-2xl font-semibold text-[#D67BA8]">
-  <span className="font-bold text-[#F3C6D3]">T</span>
-  Vy.
-</Link>
-
+        <Link href="/" className="text-2xl font-semibold text-[#D67BA8]">
+          <span className="font-bold text-[#F3C6D3]">T</span>
+          Vy.
+        </Link>
 
         {/* Desktop menu */}
         <ul className="hidden md:flex justify-center items-center space-x-8 text-[17px] font-semibold text-[#1B1B1B]">
