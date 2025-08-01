@@ -268,6 +268,36 @@ function ProjectsContent() {
               GitHub
             </span>
           </a>
+<div className="flex justify-center mt-12">
+  <button
+    onClick={(e) => {
+      const ripple = document.createElement("span");
+      ripple.className = "ripple-effect";
+      const rect = e.currentTarget.getBoundingClientRect();
+      ripple.style.left = `${e.clientX - rect.left}px`;
+      ripple.style.top = `${e.clientY - rect.top}px`;
+      e.currentTarget.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+      setSelectedPageId(null);
+    }}
+    className="relative overflow-hidden px-6 py-3 border-2 border-[#f97316] text-[#f97316] rounded-full font-medium transition duration-300 hover:bg-[#f97316]/10"
+  >
+    <span className="relative z-10 flex items-center gap-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-5 h-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    Projects
+    </span>
+  </button>
+</div>
+
         </>
       )}
     </main>
