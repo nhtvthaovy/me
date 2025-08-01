@@ -247,6 +247,12 @@ function ProjectsContent() {
                   return (
                     <hr key={index} className="my-6 border-t border-gray-300" />
                   );
+                case "table":
+                  return (
+                    <p key={index} className="text-gray-400 italic">
+                      [Không hỗ trợ: table]
+                    </p>
+                  );
                 default:
                   return (
                     <p key={index} className="text-gray-400 italic">
