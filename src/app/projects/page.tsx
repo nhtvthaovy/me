@@ -128,7 +128,7 @@ function ProjectsContent() {
             </p>
           </motion.div>
 
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl gap-20">
             {paginatedProjects.map((project, index) => (
               <Card
                 key={project.id}
@@ -246,12 +246,6 @@ function ProjectsContent() {
                 case "divider":
                   return (
                     <hr key={index} className="my-6 border-t border-gray-300" />
-                  );
-                case "table":
-                  return (
-                    <p key={index} className="text-gray-400 italic">
-                      [Không hỗ trợ: table]
-                    </p>
                   );
                 default:
                   return (

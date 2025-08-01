@@ -1,10 +1,8 @@
- 
 "use client";
 
 import { useEffect, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import Card from "./ui/Card";
-import { Github } from "lucide-react";
 
 const fadeCard: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -56,16 +54,6 @@ export default function ProjectSection() {
         >
           Projects
         </motion.h2>
-        <a
-          href="https://github.com/nhtvthaovy"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Github className="w-8 h-8 md:w-12 md:h-12 text-black" />
-          <span className="text-[10px] md:text-sm font-medium text-black mt-1">
-            GitHub
-          </span>
-        </a>
 
         <motion.div
           className="w-16 h-1 bg-[#F4A7B9] rounded-full mb-6"
@@ -89,7 +77,7 @@ export default function ProjectSection() {
         {loading ? (
           <p className="text-center text-gray-500">Loading projects...</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-25">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20">
             {projects.slice(0, 5).map((project, index) => (
               <Card
                 key={project.id}
