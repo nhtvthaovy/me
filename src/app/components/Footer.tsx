@@ -1,4 +1,6 @@
 "use client";
+
+import { usePathname } from "next/navigation";
 import { motion, Variants } from "framer-motion";
 import { Github } from "lucide-react";
 import Link from "next/link";
@@ -33,6 +35,11 @@ const fadeIn: Variants = {
 };
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  // Ẩn footer ở "/" và "/start"
+  if (pathname === "/" || pathname === "/start") return null;
+
   return (
     <footer className="w-full bg-[#FEFFF0] px-4 md:px-12 py-10 border-t border-[#F4A7B9]/30">
       <div className="max-w-7xl mx-auto grid grid-cols-3 items-end gap-4">
